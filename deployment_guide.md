@@ -76,6 +76,8 @@ Your FastAPI backend runs as a Render **Web Service**.
      - Value: *(Paste your copied **Neon Connection String** here)*
    - Add Key: `PYTHON_VERSION`
      - Value: `3.11.0`
+   - Add Key: `BINANCE_TLD`
+     - Value: `us` *(CRITICAL: This instructs the backend to route queries via Binance.us, bypassing Render's US IP geo-restrictions)*
 5. Click **Create Web Service**.
 6. Wait for Render to build and deploy. Once finished, Render will display your live Backend URL at the top of the page (e.g., `https://journaldecoded-backend.onrender.com`). **Copy this URL.**
 
