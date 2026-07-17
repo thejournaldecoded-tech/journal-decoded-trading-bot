@@ -6,6 +6,7 @@ import websockets
 import json
 import ssl
 import certifi
+import os
 
 
 from routes import trade_routes, user_routes, market_routes, portfolio_routes,history_routes, backtest_routes, pnl_routes, analytics_routes, strategy_routes,feature_routes
@@ -58,7 +59,9 @@ async def websocket_market(websocket: WebSocket, symbol: str):
     await websocket.accept()
 
     binance_symbol = symbol.lower()
-    url = f"wss://stream.binance.com:9443/ws/{binance_symbol}@ticker"
+    tld = os.getenv("BINANCE_TLD", "com")
+    ws_domain = "stream.binance.us:9443" if tld == "us" else "stream.binance.com:9443"
+    url = f"wss://{ws_domain}/ws/{binance_symbol}@ticker"
 
     ssl_context = ssl.create_default_context(cafile=certifi.where())
 

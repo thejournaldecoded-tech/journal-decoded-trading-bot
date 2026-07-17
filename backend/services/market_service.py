@@ -6,7 +6,8 @@ import requests
 # We will use environment variables for keys later, for now we use public API
 # Binance public API allows price fetching without API key
 
-client = Client()
+tld = os.getenv("BINANCE_TLD", "com")
+client = Client(tld=tld)
 def get_current_price(symbol: str):
     # First try to get from live_prices (websocket feed)
     price = live_prices.get(symbol.upper())
