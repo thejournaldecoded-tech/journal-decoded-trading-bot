@@ -1,0 +1,217 @@
+psql 'postgresql://neondb_owner:npg_n3tDFhKqJ0sc@ep-empty-violet-a1e4xf24-pooler.ap-southeast-1.aws.neon.tech/neondb?sslmode=require&channel_binding=require'
+
+DATABASE USED IS - NEON postgresql
+EMAIL- kartikaySAXENA0@ICLOUD.com
+Neon@jd123
+
+COMMANDS TO RUN
+
+cd backend
+
+source venv/bin/activate   # Mac/Linux  for win- venv\Scripts\activate
+
+uvicorn main:app --reload
+
+backend runs at http://127.0.0.1:8000
+
+cd frontend
+
+Install dependencies (only first time) using--> npm install
+
+npm run dev
+
+
+
+{
+  "symbol": "BTCUSDT",
+  "price": 45231.75,
+  "quantity": 2,
+  "trade_type": "BUY"
+}
+
+
+{
+  "username": "kartikay",
+  "email": "kartikay@gmail.com",
+  "password": "123456"
+}
+
+response latest
+{
+  "status": "success",
+  "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE3NzMzMzUxMTN9.LQZUIO4SCueAF1Tcgn0Tv0StMCrNGr9bhAhzkHXd4ZY"
+}
+
+
+{
+  "username": "user2",
+  "email": "user2@gmail.com",
+  "password": "123456"
+}
+
+reponse latest
+
+{
+  "status": "success",
+  "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoyLCJleHAiOjE3NzMzMzc3NzZ9.cYjzpu2nshkI92LwV1O_1r44h5DyJgHydh_alfVJkWw"
+}
+
+//// wallet exists
+
+{
+ "username": "user3",
+ "email": "user3@gmail.com",
+ "password": "123456"
+}
+
+response latest 
+{
+  "status": "success",
+  "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjozLCJleHAiOjE3NzMzMzkzOTR9.EuvAh5TL7xmlXm3v4bhFQ1c7Va0KBrcf4icfb1jUEEQ"
+}
+
+{
+ "username": "user4",
+ "email": "user4@gmail.com",
+ "password": "123456"
+}
+
+{
+  "status": "success",
+  "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo0LCJleHAiOjE3NzM0MTQ4MzR9.eJaE88nV0R1n0hE_YN4lTGVW3ruHqbLWCwTAHwrK0Rg"
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+🔥 Next Big Feature (Real Algo Bot)
+
+Ab next step me hum bana sakte hain:
+
+🤖 Automatic Trading Engine
+
+Flow:
+
+market price fetch
+↓
+strategy signal (BUY/SELL)
+↓
+auto trade
+↓
+stop loss / take profit
+↓
+auto close trade
+
+
+--------------------------WHAT IS LEFT-------------------------------
+🔴 PHASE 1 — FIX & STABILIZE (VERY IMPORTANT) (3-5 hrs)
+
+(You’re currently here)
+
+✅ Must finish:
+ Fix None price issue completely (live_prices sync)
+ Ensure every trade has valid price
+ Fix JWT expiry auto-refresh (401 issue)
+ Clean WebSocket reconnect logic (frontend)
+ Remove duplicate PaperTradeForm in Dashboard
+
+🟡 PHASE 2 — REALISTIC PAPER TRADING ENGINE    (1-2 days)
+
+Right now it’s “basic execution”. Make it real-market-like.
+
+Add:
+ Trading fees (0.1% like Binance)
+ Slippage (±0.1–0.5%)
+ Position sizing (not fixed qty)
+ Capital tracking (₹10000 → grows/shrinks)
+ Stop trading after max loss (risk control)
+
+🟢 PHASE 3 — DATA ENGINE (VERY VERY IMPORTANT FOR AI) (⏱ Time: 1 day)
+
+Without this → AI = useless.
+
+Add:
+ Store OHLC + indicators + trades
+ Create features table
+
+Example:
+
+symbol | rsi | ema | volume | volatility | label
+ Save data on every trade / candle
+
+
+🔵 PHASE 4 — AI MODEL (CORE UPGRADE) (2-3 days)
+Build:
+ Training script (Python)
+ RandomForest / XGBoost model
+ Save model (.pkl file)
+ Load model in FastAPI
+
+ OUTPUT--->  {
+  "signal": "BUY",
+  "confidence": 0.78
+}
+
+🟣 PHASE 5 — AI + STRATEGY INTEGRATION   (⏱ Time: 5–6 hours)
+
+Upgrade this:
+
+❌ Old:
+
+RSI < 30 → BUY
+
+✅ New:
+
+RSI < 30 AND AI confidence > 70% → BUY
+
+🟠 PHASE 6 — FRONTEND AI DASHBOARD (⏱ Time: 1–2 days)
+
+Add:
+
+ AI Confidence %
+ Model prediction
+ Strategy vs AI comparison
+ Live portfolio (WebSocket)
+
+🔥 PHASE 7 — ADVANCED (YOUR “DHASU” PART) (2-3 days)
+Add ANY 1:
+💡 Option A: Market Regime Detection
+Trending / Sideways detection
+Auto strategy switch
+💡 Option B: Strategy Optimizer
+Try multiple EMA/RSI combos
+Pick best automatically
+💡 Option C: AI Backtest Comparison
+Show:
+Normal strategy PnL
+AI-enhanced PnL
+
+
+postgresql://neondb_owner:npg_t0RWAHf7eFNE@ep-hidden-tooth-auvprycq.c-10.us-east-1.aws.neon.tech/neondb?sslmode=require
+
+
+
+-------------------------------TEMP REMOVE IT AFTER WARDS--------------------------------
+24/04/2026 time 11:21 am 
+progresss till market_routes , feature_service testing this is cause
+Root Cause
+👉 You did NOT keep WebSocket running
+So:
+❌ No new candles being saved
+❌ DB has very few / no candles
+❌ RSI/EMA get empty data → warnings
+
