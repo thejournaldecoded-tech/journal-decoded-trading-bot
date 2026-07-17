@@ -58,47 +58,71 @@ def startup_event():
 async def websocket_market(websocket: WebSocket, symbol: str):
     await websocket.accept()
 
-    binance_symbol = symbol.lower()
-    tld = os.getenv("BINANCE_TLD", "com")
-    ws_domain = "stream.binance.us:9443" if tld == "us" else "stream.binance.com:9443"
-    url = f"wss://{ws_domain}/ws/{binance_symbol}@ticker"
+    symbol_upper = symbol.upper()
+    url = "wss://stream.bybit.com/v5/public/spot"
 
     ssl_context = ssl.create_default_context(cafile=certifi.where())
 
-    candle_data = {}
+    async def send_ping(ws):
+        try:
+            while True:
+                await asyncio.sleep(20)
+                await ws.send(json.dumps({"op": "ping"}))
+        except asyncio.CancelledError:
+            pass
+        except Exception:
+            pass
 
     try:
         async with websockets.connect(url, ssl=ssl_context) as ws:
+            # Subscribe to the Bybit spot ticker topic
+            sub_msg = {
+                "op": "subscribe",
+                "args": [f"tickers.{symbol_upper}"]
+            }
+            await ws.send(json.dumps(sub_msg))
 
-            while True:
-             
+            # Keep the Bybit websocket alive with background pings
+            ping_task = asyncio.create_task(send_ping(ws))
+
+            try:
+                while True:
                     message = await ws.recv()
                     data = json.loads(message)
 
-                    price = float(data["c"])
-                    symbol_upper = symbol.upper()
+                    # Process public ticker push messages
+                    if "topic" in data and "data" in data:
+                        ticker_data = data["data"]
+                        
+                        # Support list or dictionary formats in Bybit data payloads
+                        if isinstance(ticker_data, list) and len(ticker_data) > 0:
+                            ticker_data = ticker_data[0]
 
-                    print("Incoming price:", price)
+                        if isinstance(ticker_data, dict) and "lastPrice" in ticker_data:
+                            price = float(ticker_data["lastPrice"])
 
-                    # store live price
-                    live_prices[symbol_upper] = price
+                            print("Incoming Bybit price:", price)
 
-                    #  candle logic 
-                    process_tick(symbol_upper, price)
+                            # store live price
+                            live_prices[symbol_upper] = price
 
-                    await websocket.send_json({
-                        "symbol": symbol_upper,
-                        "price": price
-                    })
+                            #  candle logic 
+                            process_tick(symbol_upper, price)
 
+                            await websocket.send_json({
+                                "symbol": symbol_upper,
+                                "price": price
+                            })
 
-                    await asyncio.sleep(1)
+                            await asyncio.sleep(1)
+            finally:
+                ping_task.cancel()
 
     except WebSocketDisconnect:
         print("Client Disconnected safely")
     
     except Exception as e:
-        print("ERROR: " , e)
+        print("WebSocket ERROR: " , e)
             
         
             
