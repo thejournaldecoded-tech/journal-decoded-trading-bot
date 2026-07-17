@@ -18,51 +18,13 @@ We have updated the codebase to be production-ready and fully configurable:
 
 ---
 
-## 📦 Step 1: Upload the Code to GitHub (Via Website / Drag & Drop)
-Because GitHub's website has a strict **100-file limit** per upload, and because dragging folders directly can accidentally upload huge directories like `venv` or `node_modules`, you must upload the project in 3 small batches.
+## 📦 Step 1: Upload the Code to GitHub (COMPLETED ✅)
+The entire codebase has been successfully uploaded to your target GitHub repository:
+`https://github.com/thejournaldecoded-tech/journal-decoded-trading-bot`
 
-Go to your empty GitHub repository page (e.g. `https://github.com/YOUR_USERNAME/journal-decoded-trading-bot`) and follow these steps:
+All files, subfolders, and models are online. The virtual environment (`backend/venv`) and node modules (`frontend/node_modules`) were automatically excluded as planned.
 
-### Batch 1: Upload Root Files
-1. In your web browser, click **uploading an existing file** on the repository landing page.
-2. Open Finder/File Explorer on your Mac and navigate to `/Users/JD-CODE-FULL-AI-ML`.
-3. Select only the root files:
-   * `.gitignore`
-   * `start-servers.sh`
-   * `PRODUCTION_GUIDE.md`
-   * `deployment_guide.md`
-4. Drag and drop these 4 files into the GitHub browser upload box.
-5. Click **Commit changes** at the bottom.
-
----
-
-### Batch 2: Create `backend` Folder & Upload Backend Files
-1. At the repository homepage, click **Add file** -> **Create new file**.
-2. In the filename input box, type: `backend/.gitkeep` (this creates the folder on GitHub).
-3. Scroll to the bottom and click **Commit changes**.
-4. Now, click on the **backend** folder in the file list to go inside it.
-5. Click **Add file** -> **Upload files**.
-6. In Finder, open the `/Users/JD-CODE-FULL-AI-ML/backend` directory.
-7. Select **all files and folders** in this directory **EXCEPT** the `venv` folder and `__pycache__` folder.
-   * *Safe to upload:* `alembic/`, `bot/`, `core/`, `models/`, `routes/`, `schemas/`, `services/`, `utils/`, `alembic.ini`, `database.py`, `dataset.csv`, `main.py`, `model_*.pkl`, `requirements.txt`, `imp-string.txt`.
-8. Drag and drop these selected files into the browser.
-9. Click **Commit changes** (this will take a moment to process the model `.pkl` files).
-
----
-
-### Batch 3: Create `frontend` Folder & Upload Frontend Files
-1. Go back to the main page of your repository.
-2. Click **Add file** -> **Create new file**.
-3. In the filename input box, type: `frontend/.gitkeep` and click **Commit changes**.
-4. Click on the **frontend** folder in the file list.
-5. Click **Add file** -> **Upload files**.
-6. In Finder, open the `/Users/JD-CODE-FULL-AI-ML/frontend` directory.
-7. Select **all files and folders** in this directory **EXCEPT** the `node_modules` folder and `.git` folder.
-   * *Safe to upload:* `public/`, `src/`, `package.json`, `package-lock.json`, `tailwind.config.js`, `postcss.config.js`, `.gitignore`, `README.md`.
-8. Drag and drop them into the browser.
-9. Click **Commit changes**.
-
-Your GitHub repository is now fully populated and ready for Render!
+You can now skip directly to **Step 2** to configure your database!
 
 ---
 
