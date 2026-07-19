@@ -1,4 +1,4 @@
-import { useParams, Link } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import API_BASE_URL from "../config";
 
@@ -125,8 +125,11 @@ function renderContent(content) {
 
 export default function PostDetail() {
   const { id } = useParams();
+  const navigate = useNavigate();
   const [post, setPost] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [isAdmin, setIsAdmin] = useState(false);
+  const [deleting, setDeleting] = useState(false);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -142,7 +145,39 @@ export default function PostDetail() {
         setPost(null);
         setLoading(false);
       });
+
+    // Check if admin
+    const token = localStorage.getItem("jwt_token");
+    if (token) {
+      fetch(`${API_BASE_URL}/api/admin/check`, {
+        headers: { Authorization: `Bearer ${token}` }
+      })
+      .then(r => r.json())
+      .then(d => setIsAdmin(!!d.is_admin))
+      .catch(() => setIsAdmin(false));
+    }
   }, [id]);
+
+  const handleDelete = async () => {
+    if (!window.confirm("Are you sure you want to delete this post?")) return;
+    setDeleting(true);
+    try {
+      const token = localStorage.getItem("jwt_token");
+      const res = await fetch(`${API_BASE_URL}/api/posts/${id}`, {
+        method: "DELETE",
+        headers: { Authorization: `Bearer ${token}` }
+      });
+      if (res.ok) {
+        navigate(`/${post.section}`);
+      } else {
+        alert("Failed to delete post.");
+        setDeleting(false);
+      }
+    } catch (err) {
+      alert("Error connecting to server.");
+      setDeleting(false);
+    }
+  };
 
   if (loading) {
     return (
@@ -167,13 +202,25 @@ export default function PostDetail() {
 
   return (
     <div className="max-w-4xl mx-auto">
-      {/* Back link */}
-      <button
-        onClick={() => window.history.back()}
-        className="inline-flex items-center gap-2 text-gray-400 hover:text-blue-400 transition-colors text-sm mb-8"
-      >
-        ← Back
-      </button>
+      {/* Top Bar */}
+      <div className="flex justify-between items-center mb-8">
+        <button
+          onClick={() => window.history.back()}
+          className="inline-flex items-center gap-2 text-gray-400 hover:text-blue-400 transition-colors text-sm"
+        >
+          ← Back
+        </button>
+
+        {isAdmin && (
+          <button
+            onClick={handleDelete}
+            disabled={deleting}
+            className="text-sm bg-red-900/30 text-red-400 border border-red-800/50 px-3 py-1.5 rounded-lg hover:bg-red-900/50 hover:text-red-300 transition-colors"
+          >
+            {deleting ? "Deleting..." : "Delete Post"}
+          </button>
+        )}
+      </div>
 
       {/* Article Header */}
       <header className="mb-8">
