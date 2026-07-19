@@ -16,6 +16,7 @@ from routes.candle_seed_routes import router as candle_seed_router
 from routes.auto_trading_routes import router as auto_trading_router
 from routes.wallet_routes import router as wallet_router
 from routes.manual_trade_routes import router as manual_trade_router
+from routes.post_routes import router as post_router
 # from bot.scheduler import start_bot # tempo disable
 
 from models.base import Base
@@ -30,6 +31,7 @@ from services.candle_engine import process_tick
 from routes.train_routes import router as train_router
 
 from models.candle import Candle
+from models.post import Post
 
 app = FastAPI()
 
@@ -191,6 +193,7 @@ app.include_router(candle_seed_router, prefix="/api", tags=["candle"])
 app.include_router(auto_trading_router, prefix="/api", tags=["auto-trading"])
 app.include_router(wallet_router, prefix="/api", tags=["wallet"])
 app.include_router(manual_trade_router, prefix="/api", tags=["manual-trade"])
+app.include_router(post_router, prefix="/api", tags=["posts"])
 
 @app.get("/")
 def root():

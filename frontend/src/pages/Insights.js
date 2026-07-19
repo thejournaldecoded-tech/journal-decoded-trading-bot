@@ -1,14 +1,12 @@
+import { PostGrid } from "../components/PostGrid";
+
 function Insights() {
   return (
-    <div>
-      <h2 className="text-3xl font-semibold mb-6">
-        Market Insights
-      </h2>
-      <p className="text-gray-400">
-        Structured financial research and market analysis modules 
-        will be displayed here.
-      </p>
-    </div>
+    <PostGrid 
+      section="insights" 
+      title="Market Insights" 
+      description="Structured financial research and market analysis modules." 
+    />
   );
 }
 

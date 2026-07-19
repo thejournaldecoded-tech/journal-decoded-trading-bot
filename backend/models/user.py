@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String, Float
+from sqlalchemy import Column, Integer, String, Float, Boolean
 from database import engine
 from models.base import Base
 
@@ -17,5 +17,4 @@ class User(Base):
 
     balance = Column(Float, default=10000.0)
 
-
-
+    is_admin = Column(Boolean, default=False)

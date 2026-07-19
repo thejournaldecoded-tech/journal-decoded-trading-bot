@@ -4,6 +4,8 @@ import Home from "./pages/Home";
 import StrategyLab from "./pages/StrategyLab";
 import Insights from "./pages/Insights";
 import Economics from "./pages/Economics";
+import AdminPanel from "./pages/AdminPanel";
+import PostDetail from "./pages/PostDetail";
 import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
 import TradingSignals from "./pages/TradingSignals";
@@ -22,6 +24,8 @@ function App() {
           <Route path="/strategy-lab" element={<StrategyLab />} />
           <Route path="/insights" element={<Insights />} />
           <Route path="/economics" element={<Economics />} />
+          <Route path="/post/:id" element={<PostDetail />} />
+          <Route path="/admin" element={<AdminPanel />} />
           <Route path="/login" element={<Login />} />
           <Route path="/dashboard" element={<ProtectedRoute><Dashboard/></ProtectedRoute>}/>
           <Route path="/signals" element={<TradingSignals />} />
