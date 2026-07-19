@@ -130,6 +130,7 @@ export default function PostDetail() {
   const [loading, setLoading] = useState(true);
   const [isAdmin, setIsAdmin] = useState(false);
   const [deleting, setDeleting] = useState(false);
+  const [confirmDelete, setConfirmDelete] = useState(false);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -159,7 +160,10 @@ export default function PostDetail() {
   }, [id]);
 
   const handleDelete = async () => {
-    if (!window.confirm("Are you sure you want to delete this post?")) return;
+    if (!confirmDelete) {
+      setConfirmDelete(true);
+      return;
+    }
     setDeleting(true);
     try {
       const token = localStorage.getItem("jwt_token");
@@ -214,10 +218,15 @@ export default function PostDetail() {
         {isAdmin && (
           <button
             onClick={handleDelete}
+            onMouseLeave={() => setConfirmDelete(false)}
             disabled={deleting}
-            className="text-sm bg-red-900/30 text-red-400 border border-red-800/50 px-3 py-1.5 rounded-lg hover:bg-red-900/50 hover:text-red-300 transition-colors"
+            className={`text-sm border px-3 py-1.5 rounded-lg transition-colors ${
+              confirmDelete
+                ? "bg-red-600 text-white border-red-600 hover:bg-red-700"
+                : "bg-red-900/30 text-red-400 border-red-800/50 hover:bg-red-900/50 hover:text-red-300"
+            }`}
           >
-            {deleting ? "Deleting..." : "Delete Post"}
+            {deleting ? "Deleting..." : confirmDelete ? "Sure? Click to delete" : "Delete Post"}
           </button>
         )}
       </div>
