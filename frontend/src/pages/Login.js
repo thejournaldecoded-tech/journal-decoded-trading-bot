@@ -6,20 +6,38 @@ export default function Login() {
   const { login } = useAuth();
   const navigate = useNavigate();
   const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [isLogin, setIsLogin] = useState(true); // Toggle between login and signup
 
-  const handleSubmit = async (e) => {
+  const handleAuth = async (e) => {
     e.preventDefault();
-    console.log("Login attempt:", { username, password: "***" });
-    const success = await login(username, password);
-    console.log("Login result:", success);
-    if (success) {
-      console.log("Navigating to dashboard...");
-      navigate("/dashboard");
+    setError("");
+
+    if (isLogin) {
+      const success = await login(username, password);
+      if (success) {
+        navigate("/dashboard");
+      } else {
+        setError("Invalid credentials");
+      }
     } else {
-      setError("Invalid credentials");
+      try {
+        const response = await fetch("/api/signup", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ username, email, password }),
+        });
+        if (response.ok) {
+          setIsLogin(true);
+          setError("Signup successful! Please login.");
+        } else {
+          setError("Signup failed. Please try again.");
+        }
+      } catch (err) {
+        setError("Server error during signup.");
+      }
     }
   };
 
@@ -50,32 +68,34 @@ export default function Login() {
       </h2>
       {error && <p className="text-red-500 mb-4">{error}</p>}
       
-      {isLogin ? (
-        <form onSubmit={handleSubmit} className="space-y-4">
+      <form onSubmit={handleAuth} className="space-y-4">
+        <input
+          type="text"
+          placeholder="Username"
+          className="w-full p-3 rounded bg-gray-800 border border-gray-700"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+        />
+        {!isLogin && (
           <input
-            type="text"
-            placeholder="Username"
+            type="email"
+            placeholder="Email"
             className="w-full p-3 rounded bg-gray-800 border border-gray-700"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
           />
-          <input
-            type="password"
-            placeholder="Password"
-            className="w-full p-3 rounded bg-gray-800 border border-gray-700"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-          <button className="w-full bg-blue-600 hover:bg-blue-700 py-3 rounded font-medium">
-            Login
-          </button>
-        </form>
-      ) : (
-        <div className="text-center text-gray-400">
-          <p className="mb-4">Sign up functionality coming soon!</p>
-          <p className="text-sm">For now, please use the login form with existing credentials.</p>
-        </div>
-      )}
+        )}
+        <input
+          type="password"
+          placeholder="Password"
+          className="w-full p-3 rounded bg-gray-800 border border-gray-700"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+        <button className="w-full bg-blue-600 hover:bg-blue-700 py-3 rounded font-medium">
+          {isLogin ? 'Login' : 'Sign Up'}
+        </button>
+      </form>
     </div>
   );
 }
