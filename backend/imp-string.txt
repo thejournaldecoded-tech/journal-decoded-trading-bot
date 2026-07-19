@@ -203,6 +203,7 @@ AI-enhanced PnL
 
 postgresql://neondb_owner:npg_t0RWAHf7eFNE@ep-hidden-tooth-auvprycq.c-10.us-east-1.aws.neon.tech/neondb?sslmode=require
 
+postgresql://neondb_owner:npg_t0RWAHf7eFNE@ep-hidden-tooth-auvprycq.c-10.us-east-1.aws.neon.tech/neondb?sslmode=require
 
 
 -------------------------------TEMP REMOVE IT AFTER WARDS--------------------------------

@@ -1,22 +1,12 @@
 # 🚀 Deploying JournalDecoded Trading Platform to Render & Neon (Free Tier)
 
-This guide provides step-by-step instructions to deploy your full stack AI trading application using **GitHub (via Terminal with Personal Access Token)**, **Neon PostgreSQL**, and **Render** (free hosting platform).
 
----
 
-## 📋 Prerequisites
-1. A **GitHub** account.
-2. A **Render** account (Sign up at [render.com](https://render.com) using your GitHub account for easy integration).
-3. A **Neon** account (Sign up at [neon.tech](https://neon.tech)).
 
----
 
-## 🛠️ Code Preparation (Already Completed)
-We have updated the codebase to be production-ready and fully configurable:
-* **Backend Database:** Modified [database.py](file:///Users/JD-CODE-FULL-AI-ML/backend/database.py) to read the database connection string dynamically from the `DATABASE_URL` environment variable. It automatically falls back to the current development database if none is provided.
-* **Frontend API & WebSockets:** Modified the frontend to read backend URLs dynamically from `REACT_APP_API_URL` and `REACT_APP_WS_URL`.
 
----
+
+
 
 ## 📦 Step 1: Upload the Code to GitHub (Using Terminal & Personal Access Token)
 
