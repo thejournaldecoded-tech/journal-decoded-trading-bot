@@ -52,6 +52,40 @@ def startup_event():
     # start_bot()
     # start_scheduler()
 
+    # Auto-seed BTCUSDT candles so /signal endpoint works right after deploy
+    import threading, time
+    def _seed_candles():
+        time.sleep(5)  # let DB settle first
+        try:
+            from services.market_service import get_historical_price
+            from models.candle import Candle
+            from datetime import datetime, timedelta
+            db = SessionLocal()
+            existing = db.query(Candle).filter(Candle.symbol == "BTCUSDT").count()
+            if existing < 50:
+                print("Auto-seeding BTCUSDT candles...")
+                prices = get_historical_price("BTCUSDT", limit=200, interval="1m")
+                if prices:
+                    db.query(Candle).filter(Candle.symbol == "BTCUSDT").delete()
+                    base_time = datetime.now() - timedelta(minutes=len(prices))
+                    for i, price in enumerate(prices):
+                        db.add(Candle(
+                            symbol="BTCUSDT", interval="1m",
+                            open=price, high=price*1.001, low=price*0.999,
+                            close=price, volume=1000.0,
+                            timestamp=base_time + timedelta(minutes=i)
+                        ))
+                    db.commit()
+                    print(f"Auto-seeded {len(prices)} BTCUSDT candles")
+                else:
+                    print("Auto-seed: Bybit returned no data")
+            else:
+                print(f"DB has {existing} candles, skipping seed")
+            db.close()
+        except Exception as e:
+            print(f"Auto-seed error: {e}")
+    threading.Thread(target=_seed_candles, daemon=True).start()
+
 
 
 @app.websocket("/ws/market/{symbol}")
