@@ -55,21 +55,21 @@ export default function LiveMarket() {
   };
 
   return (
-    <div className="bg-gray-900 p-8 rounded-2xl border border-gray-800 text-white">
+    <div className="bg-gray-900 p-6 md:p-8 rounded-2xl border border-gray-800 text-white w-full overflow-hidden">
 
       {/* HEADER */}
-      <h2 className="text-2xl font-bold mb-6">
+      <h2 className="text-xl md:text-2xl font-bold mb-6">
         Live Market Feed 🚀
       </h2>
 
       {/* INPUT */}
-      <div className="flex items-center gap-4 mb-6">
+      <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 mb-6">
         <input
           type="text"
           value={input}
           onChange={(e) => setInput(e.target.value)}
-          placeholder="Enter symbol (e.g. btcusdt, ethusdt)"
-          className="border p-2 rounded text-black"
+          placeholder="Enter symbol (e.g. btcusdt)"
+          className="border p-2 rounded text-black w-full sm:w-auto flex-1"
         />
 
         <button

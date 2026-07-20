@@ -129,10 +129,10 @@ export default function Dashboard() {
     <div className="max-w-7xl mx-auto mt-12 space-y-10">
 
       {/* TRADING MODE CONTROLS */}
-      <div className="bg-gray-900 rounded-xl p-6 border border-gray-800">
-        <div className="flex justify-between items-center mb-4">
-          <h2 className="text-xl font-bold text-white">Trading Control Panel</h2>
-          <div className="text-2xl font-bold text-green-400">
+      <div className="bg-gray-900 rounded-xl p-4 md:p-6 border border-gray-800 w-full overflow-hidden">
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-2 md:gap-4 mb-4">
+          <h2 className="text-lg md:text-xl font-bold text-white">Trading Control Panel</h2>
+          <div className="text-xl md:text-2xl font-bold text-green-400">
             Balance: ${accountBalance.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})} USD
           </div>
         </div>
@@ -164,7 +164,7 @@ export default function Dashboard() {
           {/* Auto Trading Controls */}
           <div>
             <label className="block text-sm font-medium text-gray-300 mb-2">Auto Trading</label>
-            <div className="flex gap-2">
+            <div className="flex flex-wrap gap-2">
               <button
                 onClick={startAutoTrading}
                 className={`px-4 py-2 rounded-lg ${
