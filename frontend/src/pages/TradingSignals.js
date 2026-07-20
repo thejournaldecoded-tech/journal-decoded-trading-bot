@@ -49,7 +49,7 @@ function TradingSignals() {
   return (
     <div className="min-h-screen bg-gray-950 text-white p-8">
       <div className="max-w-6xl mx-auto">
-        <h1 className="text-4xl font-bold mb-8">AI Trading Signals</h1>
+        <h1 className="text-4xl font-bold mb-8">Macro Trend Predictions</h1>
         
         {/* Symbol and Algorithm Selector */}
         <div className="mb-8 grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -148,13 +148,13 @@ function TradingSignals() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* Current Signal */}
           <div className="bg-gray-900 rounded-xl p-6 border border-gray-800">
-            <h2 className="text-2xl font-semibold mb-4">Current Signal</h2>
+            <h2 className="text-2xl font-semibold mb-4">Daily/4H Trend Forecast</h2>
             {loading ? (
               <div className="text-center py-8">
                 <div className="text-blue-400 text-sm mb-2">
-                  🔄 Updating signal...
+                  🔄 Calculating probabilities...
                 </div>
-                <p className="text-gray-400 text-xs">Signal refreshes every 5 seconds</p>
+                <p className="text-gray-400 text-xs">Forecasts updated based on Macro timeframes</p>
               </div>
             ) : error ? (
               <div className="text-center py-8">
@@ -414,16 +414,16 @@ function TradingSignals() {
           <h2 className="text-2xl font-semibold mb-4">System Status</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div className="text-center">
-              <div className="text-green-500 text-2xl mb-2">🟢 Live</div>
+              <div className="text-green-500 text-2xl mb-2">🟢 Stable</div>
               <p className="text-gray-400">Market Data Feed</p>
             </div>
             <div className="text-center">
               <div className="text-green-500 text-2xl mb-2">🤖 Active</div>
-              <p className="text-gray-400">AI Model</p>
+              <p className="text-gray-400">Macro Models</p>
             </div>
             <div className="text-center">
-              <div className="text-green-500 text-2xl mb-2">⚡ Real-time</div>
-              <p className="text-gray-400">5s Updates</p>
+              <div className="text-green-500 text-2xl mb-2">📅 4H / 1D</div>
+              <p className="text-gray-400">Timeframe Focus</p>
             </div>
           </div>
         </div>

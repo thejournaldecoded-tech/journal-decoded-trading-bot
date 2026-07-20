@@ -131,7 +131,7 @@ export default function Dashboard() {
       {/* TRADING MODE CONTROLS */}
       <div className="bg-gray-900 rounded-xl p-4 md:p-6 border border-gray-800 w-full overflow-hidden">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-2 md:gap-4 mb-4">
-          <h2 className="text-lg md:text-xl font-bold text-white">Trading Control Panel</h2>
+          <h2 className="text-lg md:text-xl font-bold text-white">Swing Trading Engine</h2>
           <div className="text-xl md:text-2xl font-bold text-green-400">
             Balance: ${accountBalance.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})} USD
           </div>
@@ -163,35 +163,49 @@ export default function Dashboard() {
 
           {/* Auto Trading Controls */}
           <div>
-            <label className="block text-sm font-medium text-gray-300 mb-2">Auto Trading</label>
-            <div className="flex flex-wrap gap-2">
-              <button
-                onClick={startAutoTrading}
-                className={`px-4 py-2 rounded-lg ${
-                  autoTradingStatus === 'running' ? 'bg-green-600' : 'bg-gray-700'
-                }`}
-                disabled={tradingMode !== 'auto'}
+            <label className="block text-sm font-medium text-gray-300 mb-2">Automated Execution</label>
+            <div className="flex flex-col gap-2">
+              <select 
+                value={autoTradingConfig.symbols[0]}
+                onChange={(e) => setAutoTradingConfig({...autoTradingConfig, symbols: [e.target.value]})}
+                className="bg-gray-800 border border-gray-700 rounded px-3 py-1.5 text-sm w-full"
+                disabled={tradingMode !== 'auto' || autoTradingStatus === 'running'}
               >
-                Start
-              </button>
-              <button
-                onClick={() => setAutoTradingStatus('paused')}
-                className={`px-4 py-2 rounded-lg ${
-                  autoTradingStatus === 'paused' ? 'bg-yellow-600' : 'bg-gray-700'
-                }`}
-                disabled={tradingMode !== 'auto'}
-              >
-                Pause
-              </button>
-              <button
-                onClick={stopAutoTrading}
-                className={`px-4 py-2 rounded-lg ${
-                  autoTradingStatus === 'stopped' ? 'bg-red-600' : 'bg-gray-700'
-                }`}
-                disabled={tradingMode !== 'auto'}
-              >
-                Stop
-              </button>
+                <option value="BTCUSDT">BTC/USDT</option>
+                <option value="ETHUSDT">ETH/USDT</option>
+                <option value="SOLUSDT">SOL/USDT</option>
+                <option value="BNBUSDT">BNB/USDT</option>
+                <option value="ADAUSDT">ADA/USDT</option>
+              </select>
+              <div className="flex flex-wrap gap-2">
+                <button
+                  onClick={startAutoTrading}
+                  className={`px-4 py-2 text-sm rounded-lg ${
+                    autoTradingStatus === 'running' ? 'bg-green-600' : 'bg-gray-700'
+                  }`}
+                  disabled={tradingMode !== 'auto'}
+                >
+                  Start
+                </button>
+                <button
+                  onClick={() => setAutoTradingStatus('paused')}
+                  className={`px-4 py-2 text-sm rounded-lg ${
+                    autoTradingStatus === 'paused' ? 'bg-yellow-600' : 'bg-gray-700'
+                  }`}
+                  disabled={tradingMode !== 'auto'}
+                >
+                  Pause
+                </button>
+                <button
+                  onClick={stopAutoTrading}
+                  className={`px-4 py-2 text-sm rounded-lg ${
+                    autoTradingStatus === 'stopped' ? 'bg-red-600' : 'bg-gray-700'
+                  }`}
+                  disabled={tradingMode !== 'auto'}
+                >
+                  Stop
+                </button>
+              </div>
             </div>
           </div>
 
@@ -211,12 +225,16 @@ export default function Dashboard() {
         {/* Algorithm Settings for Auto Mode */}
         {tradingMode === 'auto' && (
           <div className="mt-4 p-4 bg-gray-800 rounded-lg">
-            <h3 className="text-sm font-semibold text-gray-300 mb-2">🤖 Algorithm Settings</h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs text-gray-400">
-              <div>• Min Confidence: 60%</div>
-              <div>• Min Model Accuracy: 60%</div>
+            <h3 className="text-sm font-semibold text-gray-300 mb-2">📊 Macro Strategy Settings (Daily/4H)</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs text-gray-400 mb-3">
+              <div>• Timeframe: 4H / 1D (Swing Focus)</div>
+              <div>• Target Asset: {autoTradingConfig.symbols[0]}</div>
               <div>• Risk Level: Medium</div>
               <div>• Position Size: 5%</div>
+            </div>
+            <div className="p-2 bg-yellow-900/30 border border-yellow-800 rounded text-xs text-yellow-500">
+              ⚠️ Local Execution Mode: This browser tab must remain open for the strategy to evaluate and execute trades. 
+              Closing the tab will pause the trading engine.
             </div>
           </div>
         )}
