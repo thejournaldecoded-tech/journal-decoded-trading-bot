@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { AdvancedRealTimeChart, Screener } from "react-ts-tradingview-widgets";
 
 function Home() {
   const [typedText, setTypedText] = useState("");
@@ -42,19 +43,23 @@ function Home() {
         </div>
       </section>
 
-      {/* Mock Terminal Section */}
-      <section className="max-w-4xl mx-auto px-4">
-        <div className="bg-[#0a0a0f] border border-gray-800 rounded-2xl overflow-hidden shadow-2xl shadow-black">
-          <div className="bg-gray-900 border-b border-gray-800 px-4 py-3 flex items-center gap-2">
-            <div className="w-3 h-3 rounded-full bg-red-500/80" />
-            <div className="w-3 h-3 rounded-full bg-yellow-500/80" />
-            <div className="w-3 h-3 rounded-full bg-green-500/80" />
-            <span className="ml-2 text-xs text-gray-500 font-mono">jd-core-engine ~ bash</span>
-          </div>
-          <div className="p-6 font-mono text-sm md:text-base text-green-400 min-h-[160px] whitespace-pre-wrap">
-            {typedText}
-            <span className="animate-pulse">_</span>
-          </div>
+      {/* TradingView Chart Section */}
+      <section className="max-w-6xl mx-auto px-4 h-[500px]">
+        <div className="w-full h-full rounded-2xl overflow-hidden border border-gray-800 shadow-2xl shadow-blue-900/10 bg-[#131722]">
+          <AdvancedRealTimeChart 
+            theme="dark"
+            symbol="BINANCE:BTCUSDT"
+            interval="D"
+            timezone="Etc/UTC"
+            style="1"
+            locale="en"
+            enable_publishing={false}
+            hide_top_toolbar={false}
+            hide_legend={false}
+            save_image={false}
+            container_id="tradingview_chart"
+            autosize
+          />
         </div>
       </section>
 
@@ -101,6 +106,26 @@ function Home() {
               Systematic position sizing, dynamic stop-losses, and real-time P&L tracking to protect capital during volatility.
             </p>
           </div>
+        </div>
+      </section>
+
+      {/* TradingView Screener Section */}
+      <section className="max-w-6xl mx-auto px-4 mt-16">
+        <div className="text-center mb-10">
+          <h2 className="text-2xl md:text-3xl font-bold text-white mb-3">Live Market Screener</h2>
+          <p className="text-gray-400">Track crypto market movements in real-time.</p>
+        </div>
+        <div className="h-[600px] w-full rounded-2xl overflow-hidden border border-gray-800 shadow-xl bg-[#131722]">
+          <Screener 
+            colorTheme="dark" 
+            defaultColumn="overview"
+            defaultScreen="general"
+            market="crypto"
+            showToolbar={true}
+            locale="en"
+            width="100%"
+            height="100%"
+          />
         </div>
       </section>
 

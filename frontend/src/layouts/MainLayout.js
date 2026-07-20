@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
+import { TickerTape } from "react-ts-tradingview-widgets";
 
 function MainLayout({ children }) {
   const { user, logout } = useAuth();
@@ -129,6 +130,11 @@ function MainLayout({ children }) {
           </div>
         </div>
       </nav>
+
+      {/* TradingView Ticker Tape */}
+      <div className="border-b border-gray-800 bg-[#131722]">
+        <TickerTape colorTheme="dark" displayMode="regular" />
+      </div>
 
       {/* Page Content */}
       <div className="px-4 md:px-10 py-8 md:py-12 max-w-7xl mx-auto">
