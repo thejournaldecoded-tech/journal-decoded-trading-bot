@@ -61,12 +61,12 @@ export default function PaperTradeForm({ onTradeSuccess, disabled = false, onBal
   }, []);
 
   return (
-    <div className="bg-gray-900 p-8 rounded-2xl border border-gray-800">
-      <div className="flex justify-between items-center mb-6">
-        <h2 className="text-2xl font-bold text-white">
+    <div className="bg-gray-900 p-6 md:p-8 rounded-2xl border border-gray-800 w-full overflow-hidden">
+      <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-6">
+        <h2 className="text-xl md:text-2xl font-bold text-white">
           Execute Paper Trade
         </h2>
-        <div className="text-xl font-bold text-green-400">
+        <div className="text-lg md:text-xl font-bold text-green-400">
           Balance: ${accountBalance.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})} USD
         </div>
       </div>
@@ -109,7 +109,7 @@ export default function PaperTradeForm({ onTradeSuccess, disabled = false, onBal
           placeholder="Quantity"
           value={quantity}
           onChange={(e) => setQuantity(e.target.value)}
-          className="p-3 rounded bg-gray-800 border border-gray-700 disabled:opacity-50"
+          className="p-3 w-full rounded bg-gray-800 border border-gray-700 disabled:opacity-50"
           required
           disabled={disabled}
         />
