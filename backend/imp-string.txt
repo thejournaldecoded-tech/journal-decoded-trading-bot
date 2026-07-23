@@ -18,6 +18,26 @@ cd frontend
 
 Install dependencies (only first time) using--> npm install
 
+------------------------------------------------------------------------------------------
+DEPLOYED CASE NOW
+
+Option 1 (The one we tested earlier):
+
+Username: testuser1
+Password: test1234
+Option 2 (The fresh debug account):
+
+Username: debugtest99
+Password: debug1234
+
+
+
+
+
+
+-------------------------------------------------------------------------------------------
+
+
 npm run dev
 
 

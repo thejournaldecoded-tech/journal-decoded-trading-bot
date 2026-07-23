@@ -1,0 +1,62 @@
+[
+  {
+    "id": "what-is-inflation",
+    "title": "What is Inflation? A Complete Guide",
+    "category": "Macroeconomics",
+    "date": "2026-07-18",
+    "author": "JournalDecoded",
+    "readTime": "6 min read",
+    "summary": "Inflation is one of the most talked-about economic concepts — but what does it really mean for your money, investments, and daily life? We break it down clearly.",
+    "content": "## What is Inflation?\n\nInflation refers to the **general increase in prices** of goods and services over time. When inflation rises, each unit of currency buys fewer goods and services — meaning your purchasing power decreases.\n\n## How is Inflation Measured?\n\nThe most common measure is the **Consumer Price Index (CPI)**, which tracks the price of a basket of everyday goods — food, housing, transportation, healthcare, and more.\n\nAnother measure is the **WPI (Wholesale Price Index)**, which tracks prices at the producer level before they reach consumers.\n\n## Types of Inflation\n\n### 1. Demand-Pull Inflation\nOccurs when demand for goods exceeds supply. For example, if everyone suddenly wants to buy electric cars but factories can't keep up, prices rise.\n\n### 2. Cost-Push Inflation\nHappens when production costs rise — like oil prices or raw materials — and businesses pass those costs to consumers.\n\n### 3. Built-In Inflation\nAlso called wage-price spiral. Workers demand higher wages → businesses raise prices → workers demand even higher wages.\n\n## Why Does Inflation Matter for Investors?\n\n- **Stocks**: Companies with pricing power do well during inflation\n- **Bonds**: Fixed-income investments lose value in real terms\n- **Gold & Commodities**: Often used as inflation hedges\n- **Real Estate**: Property values typically rise with inflation\n\n## The RBI's Role\n\nIn India, the **Reserve Bank of India (RBI)** targets inflation at **4% (±2%)**. When inflation rises above this, the RBI raises interest rates to cool the economy. When it's too low, rates are cut to stimulate spending.\n\n## Key Takeaway\n\nInflation is not inherently bad — moderate inflation (2-4%) signals a growing economy. The problem is **hyperinflation** (>50% per month, like Zimbabwe in 2008) or **stagflation** (high inflation + low growth).",
+    "images": [
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Cat03.jpg/1200px-Cat03.jpg",
+        "caption": "CPI tracks prices of everyday goods in a representative basket"
+      }
+    ]
+  },
+  {
+    "id": "pe-ratio-explained",
+    "title": "P/E Ratio: The Most Important Valuation Metric",
+    "category": "Stock Market",
+    "date": "2026-07-15",
+    "author": "JournalDecoded",
+    "readTime": "5 min read",
+    "summary": "The Price-to-Earnings ratio is the most widely used tool to judge if a stock is cheap or expensive. Here's everything you need to know.",
+    "content": "## What is the P/E Ratio?\n\nThe **Price-to-Earnings (P/E) ratio** compares a company's stock price to its earnings per share (EPS).\n\n```\nP/E Ratio = Stock Price ÷ Earnings Per Share (EPS)\n```\n\nFor example: If a stock trades at ₹1,000 and earned ₹50 per share last year, the P/E is **20x**.\n\n## What Does it Mean?\n\nA P/E of 20x means investors are willing to pay ₹20 for every ₹1 of earnings. Higher P/E = higher expectations for future growth.\n\n## Types of P/E\n\n### Trailing P/E\nBased on actual earnings from the last 12 months. More reliable as it uses real data.\n\n### Forward P/E\nBased on **estimated future earnings**. Useful but can be wrong if estimates are off.\n\n## Is a High P/E Bad?\n\nNot necessarily. Growth companies (like tech stocks) often have high P/E ratios because investors expect massive future earnings. Value stocks tend to have lower P/E ratios.\n\n**Comparison by sector matters more than the absolute number.**\n\n| Sector | Typical P/E Range |\n|--------|------------------|\n| IT / Tech | 25-50x |\n| Banking | 10-20x |\n| FMCG | 30-60x |\n| Auto | 15-25x |\n| Utilities | 8-15x |\n\n## Limitations\n\n- Useless for loss-making companies (negative earnings)\n- Can be manipulated through accounting tricks\n- Doesn't account for debt levels\n- Growth rate not considered (use PEG ratio instead)\n\n## Key Takeaway\n\nP/E ratio is a starting point, not a final answer. Always compare within the same sector and use alongside other metrics like ROE, Debt/Equity, and Revenue Growth.",
+    "images": []
+  },
+  {
+    "id": "understanding-crypto-volatility",
+    "title": "Why Is Crypto So Volatile? The Real Reasons",
+    "category": "Crypto",
+    "date": "2026-07-10",
+    "author": "JournalDecoded",
+    "readTime": "7 min read",
+    "summary": "Bitcoin can drop 30% in a week and recover 50% in a month. Understanding why crypto is so volatile helps you invest with more clarity and less panic.",
+    "content": "## The Volatility Problem\n\nCryptocurrencies are infamous for their wild price swings. But this volatility isn't random — it has structural causes that every investor should understand.\n\n## Reason 1: Small Market Cap\n\nBitcoin's entire market cap is ~$1.2 trillion. Apple alone is worth more. In crypto, even a $100 million whale moving funds can shift prices significantly. In stock markets, a similar trade would be a drop in the ocean.\n\n## Reason 2: 24/7 Trading\n\nUnlike stock markets that close on weekends and holidays, crypto trades every second of every day. This means news, rumors, and social media posts can cause immediate price reactions without any circuit breakers.\n\n## Reason 3: Retail-Dominated Market\n\nInstitutional investors like pension funds and insurance companies typically dampen volatility in traditional markets — they buy dips and sell peaks systematically. Crypto is still largely retail-driven, leading to emotional, herd-based trading.\n\n## Reason 4: Leverage & Derivatives\n\nCrypto exchanges allow leverage up to **100x** in some cases. When prices move against leveraged positions, automatic liquidations cascade — accelerating both crashes and pumps.\n\n## Reason 5: Regulatory Uncertainty\n\nA single government announcement — China banning crypto, SEC suing an exchange — can wipe out 20% in hours. The regulatory landscape is still being built.\n\n## How to Handle It\n\n1. **Never invest more than you can afford to lose**\n2. **Dollar-Cost Averaging (DCA)** reduces timing risk\n3. **Set stop-losses** to limit downside\n4. **Avoid leverage** unless you're experienced\n5. **Diversify** across crypto and traditional assets\n\n## Key Takeaway\n\nVolatility is the price you pay for crypto's potential returns. Understanding its causes helps you stay rational when markets panic — and that's your biggest edge.",
+    "images": []
+  },
+  {
+    "id": "what-is-rsi",
+    "title": "RSI Indicator: How to Know When a Stock is Overbought",
+    "category": "Technical Analysis",
+    "date": "2026-07-05",
+    "author": "JournalDecoded",
+    "readTime": "4 min read",
+    "summary": "The Relative Strength Index (RSI) is one of the most popular momentum indicators used by traders worldwide. Here's how to use it correctly.",
+    "content": "## What is RSI?\n\nThe **Relative Strength Index (RSI)** is a momentum oscillator that measures the speed and magnitude of price changes. It ranges from **0 to 100**.\n\n## The Key Levels\n\n- **RSI > 70** → Overbought (potential sell signal)\n- **RSI < 30** → Oversold (potential buy signal)\n- **RSI = 50** → Neutral momentum\n\n## How is it Calculated?\n\n```\nRSI = 100 - [100 / (1 + RS)]\nRS = Average Gain / Average Loss (over 14 periods)\n```\n\n## How to Use RSI\n\n### 1. Overbought/Oversold Signals\nWhen RSI crosses above 70, the asset may be overbought. When it falls below 30, it may be oversold. **But don't use this alone** — a stock can stay overbought for months during a strong trend.\n\n### 2. RSI Divergence\nThis is the most powerful signal:\n- **Bullish Divergence**: Price makes lower lows, but RSI makes higher lows → reversal up likely\n- **Bearish Divergence**: Price makes higher highs, but RSI makes lower highs → reversal down likely\n\n### 3. Centerline Crossover\n- RSI crossing above 50 = bullish momentum\n- RSI crossing below 50 = bearish momentum\n\n## Common Mistakes\n\n❌ **Selling just because RSI is above 70** — in strong trends, RSI can stay above 70 for weeks\n\n❌ **Using RSI in isolation** — always combine with price action, volume, and trend direction\n\n❌ **Short timeframe RSI** — RSI on 1-minute charts is very noisy. Use 1-hour or daily for better signals\n\n## Key Takeaway\n\nRSI is a powerful tool when used correctly. Focus on divergences and trend confirmation rather than just overbought/oversold levels.",
+    "images": []
+  },
+  {
+    "id": "interest-rates-and-markets",
+    "title": "How Interest Rates Move the Entire Market",
+    "category": "Macroeconomics",
+    "date": "2026-06-28",
+    "author": "JournalDecoded",
+    "readTime": "8 min read",
+    "summary": "Interest rates are the single most powerful force in financial markets. Understanding how they ripple through stocks, bonds, real estate, and currency gives you a massive edge.",
+    "content": "## The Interest Rate Effect\n\nWhen central banks like the **RBI** or **US Federal Reserve** change interest rates, the effects ripple through every corner of the financial world.\n\n## How Rate Hikes Affect Different Assets\n\n### Stocks\nHigher rates = higher discount rate for future earnings = lower valuations. Growth stocks (with earnings far in the future) are hit hardest. Defensive and value stocks hold up better.\n\n### Bonds\nBond prices move **inversely** to interest rates. When rates rise, existing bonds (with lower coupons) become less attractive, so their prices fall.\n\n### Real Estate\nHigher rates = higher mortgage costs = lower demand for property = prices moderate. This is why real estate boomed when rates were near zero (2020-2021) and cooled when rates rose sharply.\n\n### Currency\nHigher interest rates attract foreign capital seeking better returns → currency strengthens. This is why USD strengthened significantly when the Fed hiked rates in 2022-2023.\n\n### Gold\nGold is a non-yielding asset. When rates are high, bonds and savings accounts offer real returns — making gold less attractive. When rates fall, gold tends to rally.\n\n## The Rate Cycle\n\n```\nEconomy overheats → Inflation rises → Central bank hikes rates\n→ Borrowing costs rise → Spending slows → Economy cools\n→ Inflation falls → Central bank cuts rates → Cycle repeats\n```\n\n## What to Do in Each Phase\n\n| Phase | What Typically Works |\n|-------|---------------------|\n| Rising Rates | Value stocks, Financials, Short-duration bonds |\n| Peak Rates | Defensive stocks, Long-duration bonds |\n| Falling Rates | Growth stocks, Real Estate, Gold |\n| Low Rates | Equities broadly, High-yield bonds |\n\n## Key Takeaway\n\nInterest rates are the gravitational force of investing. Knowing which phase of the rate cycle we're in is the foundation of macro-aware investing.",
+    "images": []
+  }
+]
